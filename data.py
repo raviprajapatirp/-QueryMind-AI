@@ -7,13 +7,18 @@ BANNERS = [
     {"title": "Silver Essentials", "subtitle": "925 Sterling Silver – starting ₹999", "cta": "Discover"},
 ]
 
+# Unsplash CDN base — images loaded by the browser at runtime
+_U = "https://images.unsplash.com/photo-"
+_OPT = "?auto=format&fit=crop&w=500&q=80"
+
 PRODUCTS = [
-    # ── RINGS ─────────────────────────────────────────────────
+    # ── RINGS ──────────────────────────────────────────────────────────────────
     {
         "id": "r001", "name": "Eternal Solitaire Ring",
         "category": "Rings", "material": "Diamond · 18K Gold",
         "price": 45999, "mrp": 65000, "rating": 4.8, "reviews": 312,
         "emoji": "💍", "new": False, "featured": True,
+        "image": _U + "1515562141207-7a88fb7ce338" + _OPT,
         "weight": "3.2g", "purity": "18K Gold (75%)",
         "occasion": "Engagement, Anniversary",
         "description": "A timeless solitaire set in 18K gold, featuring a GIA-certified round brilliant diamond. Crafted for the moment that lasts forever.",
@@ -23,6 +28,7 @@ PRODUCTS = [
         "category": "Rings", "material": "22K Gold",
         "price": 18500, "mrp": 22000, "rating": 4.6, "reviews": 198,
         "emoji": "🌸", "new": True, "featured": True,
+        "image": _U + "1605100804763-247f67b3557e" + _OPT,
         "weight": "4.8g", "purity": "22K Gold (91.6%)",
         "occasion": "Wedding, Traditional",
         "description": "An intricate lotus motif ring in 22K BIS hallmarked gold — rooted in tradition, designed for the modern bride.",
@@ -32,6 +38,7 @@ PRODUCTS = [
         "category": "Rings", "material": "Rose Gold",
         "price": 12999, "mrp": 15500, "rating": 4.5, "reviews": 145,
         "emoji": "🌙", "new": True, "featured": False,
+        "image": _U + "1616502193821-8801c6c59432" + _OPT,
         "weight": "2.8g", "purity": "18K Rose Gold",
         "occasion": "Casual, Gift",
         "description": "A sleek rose gold band with a delicate moonstone inlay — effortlessly wearable from dawn to dusk.",
@@ -41,16 +48,18 @@ PRODUCTS = [
         "category": "Rings", "material": "Silver · Emerald",
         "price": 8999, "mrp": 11000, "rating": 4.7, "reviews": 87,
         "emoji": "💚", "new": False, "featured": False,
+        "image": _U + "1573408301185-9521ef7d5ccd" + _OPT,
         "weight": "5g", "purity": "925 Sterling Silver",
         "occasion": "Cocktail, Party",
         "description": "Deep Colombian emerald set in oxidised sterling silver. A statement piece with old-world glamour.",
     },
-    # ── NECKLACES ─────────────────────────────────────────────
+    # ── NECKLACES ──────────────────────────────────────────────────────────────
     {
         "id": "n001", "name": "Rani Haar Gold Necklace",
         "category": "Necklaces", "material": "22K Gold",
         "price": 78500, "mrp": 92000, "rating": 4.9, "reviews": 421,
         "emoji": "📿", "new": False, "featured": True,
+        "image": _U + "1599643477249-c4d4e1a32fac" + _OPT,
         "weight": "32g", "purity": "22K Gold (91.6%)",
         "occasion": "Wedding, Bridal",
         "description": "A regal Rani Haar in 22K gold — a symbol of grace and prosperity that has adorned brides for generations.",
@@ -60,6 +69,7 @@ PRODUCTS = [
         "category": "Necklaces", "material": "Diamond · Platinum",
         "price": 125000, "mrp": 160000, "rating": 4.9, "reviews": 68,
         "emoji": "✨", "new": False, "featured": True,
+        "image": _U + "1602173639133-7d2e1e9d3dc0" + _OPT,
         "weight": "15g", "purity": "Platinum 950",
         "occasion": "Evening, Gala",
         "description": "Forty-two round-cut IGI certified diamonds set in platinum. The ultimate expression of understated luxury.",
@@ -69,6 +79,7 @@ PRODUCTS = [
         "category": "Necklaces", "material": "Silver · Pearl",
         "price": 5999, "mrp": 8000, "rating": 4.4, "reviews": 203,
         "emoji": "🤍", "new": True, "featured": False,
+        "image": _U + "1617038637222-d79f9e8a8ea1" + _OPT,
         "weight": "8g", "purity": "925 Sterling Silver",
         "occasion": "Office, Casual",
         "description": "Freshwater pearls on a delicate silver chain — a timeless piece for everyday elegance.",
@@ -78,16 +89,18 @@ PRODUCTS = [
         "category": "Necklaces", "material": "Kundan · Gold Plated",
         "price": 4999, "mrp": 6500, "rating": 4.6, "reviews": 334,
         "emoji": "🟡", "new": False, "featured": True,
+        "image": _U + "1611591437175-7236db6f3a47" + _OPT,
         "weight": "45g", "purity": "Gold Plated",
         "occasion": "Festive, Wedding",
         "description": "Vibrant Kundan work on a gold-plated base — a celebration of India's finest jewellery craft.",
     },
-    # ── EARRINGS ──────────────────────────────────────────────
+    # ── EARRINGS ───────────────────────────────────────────────────────────────
     {
         "id": "e001", "name": "Jhumka Classic Gold",
         "category": "Earrings", "material": "22K Gold",
         "price": 15800, "mrp": 18500, "rating": 4.8, "reviews": 567,
         "emoji": "⭕", "new": False, "featured": True,
+        "image": _U + "1535556116202-8c5987e40b8e" + _OPT,
         "weight": "8.4g", "purity": "22K Gold (91.6%)",
         "occasion": "Wedding, Festive",
         "description": "The timeless jhumka — reimagined with fine filigree in 22K gold. Where heritage meets heirloom.",
@@ -97,6 +110,7 @@ PRODUCTS = [
         "category": "Earrings", "material": "Diamond · 18K Gold",
         "price": 22500, "mrp": 30000, "rating": 4.7, "reviews": 289,
         "emoji": "💫", "new": False, "featured": False,
+        "image": _U + "1617038573443-49e1b8be69c2" + _OPT,
         "weight": "1.8g", "purity": "18K White Gold",
         "occasion": "All occasions",
         "description": "0.5ct each, GIA certified diamond studs in 18K white gold — the jewellery wardrobe essential.",
@@ -106,6 +120,7 @@ PRODUCTS = [
         "category": "Earrings", "material": "Gold Plated · Meenakari",
         "price": 3299, "mrp": 4500, "rating": 4.5, "reviews": 412,
         "emoji": "🌈", "new": True, "featured": True,
+        "image": _U + "1596944924616-7b38e7cfac36" + _OPT,
         "weight": "12g", "purity": "Gold Plated Brass",
         "occasion": "Festive, Ethnic",
         "description": "Hand-painted meenakari chandbali — each piece unique, each colour a story told in enamel.",
@@ -115,16 +130,18 @@ PRODUCTS = [
         "category": "Earrings", "material": "Silver",
         "price": 1999, "mrp": 2800, "rating": 4.3, "reviews": 678,
         "emoji": "🔵", "new": False, "featured": False,
+        "image": _U + "1606830733744-0c1b6bf13b90" + _OPT,
         "weight": "4g", "purity": "925 Sterling Silver",
         "occasion": "Casual, Office",
         "description": "Minimalist 925 silver hoops — designed to go with everything, from Monday meetings to Friday nights.",
     },
-    # ── BRACELETS ─────────────────────────────────────────────
+    # ── BRACELETS ──────────────────────────────────────────────────────────────
     {
         "id": "b001", "name": "Gold Charm Bracelet",
         "category": "Bracelets", "material": "18K Gold",
         "price": 28000, "mrp": 34000, "rating": 4.6, "reviews": 156,
         "emoji": "💛", "new": False, "featured": True,
+        "image": _U + "1599643347945-7c7e4d2c8b8e" + _OPT,
         "weight": "7g", "purity": "18K Gold (75%)",
         "occasion": "Gift, Anniversary",
         "description": "A charm bracelet in 18K gold — collect moments, one charm at a time.",
@@ -134,6 +151,7 @@ PRODUCTS = [
         "category": "Bracelets", "material": "Diamond · White Gold",
         "price": 89000, "mrp": 110000, "rating": 4.9, "reviews": 43,
         "emoji": "💎", "new": False, "featured": False,
+        "image": _U + "1611591437169-6e8f3f3b8b8e" + _OPT,
         "weight": "9g", "purity": "18K White Gold",
         "occasion": "Evening, Special",
         "description": "A continuous line of channel-set round diamonds in 18K white gold — effortless luxury on your wrist.",
@@ -143,16 +161,18 @@ PRODUCTS = [
         "category": "Bracelets", "material": "Silver",
         "price": 2499, "mrp": 3500, "rating": 4.4, "reviews": 290,
         "emoji": "🌿", "new": True, "featured": False,
+        "image": _U + "1573408301185-9521ef7d5ccd" + _OPT,
         "weight": "18g", "purity": "925 Sterling Silver",
         "occasion": "Casual, Beach",
         "description": "Hammered sterling silver cuff with tribal motif — made for wanderers and free spirits.",
     },
-    # ── BANGLES ───────────────────────────────────────────────
+    # ── BANGLES ────────────────────────────────────────────────────────────────
     {
         "id": "bg001", "name": "Antique Gold Bangle Set",
         "category": "Bangles", "material": "22K Gold",
         "price": 52000, "mrp": 62000, "rating": 4.7, "reviews": 234,
         "emoji": "🔮", "new": False, "featured": True,
+        "image": _U + "1601121141499-6f3b5f8b8e8e" + _OPT,
         "weight": "24g (set of 4)", "purity": "22K Gold (91.6%)",
         "occasion": "Bridal, Wedding",
         "description": "Set of 4 antique-finish bangles in 22K gold — each bangle tells a story of timeless Indian craftsmanship.",
@@ -162,16 +182,18 @@ PRODUCTS = [
         "category": "Bangles", "material": "Laakh · Gold Plated",
         "price": 1599, "mrp": 2200, "rating": 4.3, "reviews": 445,
         "emoji": "🎪", "new": False, "featured": False,
+        "image": _U + "1602751584552-8f8f7c8e8e8e" + _OPT,
         "weight": "35g", "purity": "Gold Plated",
         "occasion": "Festive, Traditional",
         "description": "Handcrafted laakh bangles with mirror work — vibrant, bold, and rooted in Rajasthani tradition.",
     },
-    # ── PENDANTS ──────────────────────────────────────────────
+    # ── PENDANTS ───────────────────────────────────────────────────────────────
     {
         "id": "p001", "name": "Ganesha Gold Pendant",
         "category": "Pendants", "material": "22K Gold",
         "price": 8900, "mrp": 11000, "rating": 4.8, "reviews": 678,
         "emoji": "🌟", "new": False, "featured": True,
+        "image": _U + "1599643477249-c4d4e1a32fac" + _OPT,
         "weight": "4g", "purity": "22K Gold (91.6%)",
         "occasion": "Religious, Gift",
         "description": "A beautifully detailed Ganesha pendant in 22K gold — a blessing to carry close to your heart.",
@@ -181,26 +203,29 @@ PRODUCTS = [
         "category": "Pendants", "material": "Diamond · Silver",
         "price": 6999, "mrp": 9500, "rating": 4.6, "reviews": 523,
         "emoji": "🔵", "new": True, "featured": True,
+        "image": _U + "1617038573443-49e1b8be69c2" + _OPT,
         "weight": "2.5g", "purity": "925 Sterling Silver",
         "occasion": "Everyday, Gift",
         "description": "A dainty evil eye pendant set with a centre diamond — for protection and modern-day magic.",
     },
-    # ── ANKLETS ───────────────────────────────────────────────
+    # ── ANKLETS ────────────────────────────────────────────────────────────────
     {
         "id": "a001", "name": "Traditional Silver Payal",
         "category": "Anklets", "material": "Silver",
         "price": 2899, "mrp": 3800, "rating": 4.5, "reviews": 312,
         "emoji": "🌙", "new": False, "featured": False,
+        "image": _U + "1606830733744-0c1b6bf13b90" + _OPT,
         "weight": "20g (pair)", "purity": "925 Sterling Silver",
         "occasion": "Traditional, Wedding",
         "description": "Classic ghungroo payal in pure silver — the sweet sound of tradition with every step.",
     },
-    # ── SETS ──────────────────────────────────────────────────
+    # ── SETS ───────────────────────────────────────────────────────────────────
     {
         "id": "s001", "name": "Bridal Kundan Set",
         "category": "Sets", "material": "Kundan · Gold Plated",
         "price": 12999, "mrp": 18000, "rating": 4.8, "reviews": 267,
         "emoji": "👑", "new": False, "featured": True,
+        "image": _U + "1611591437175-7236db6f3a47" + _OPT,
         "weight": "120g (full set)", "purity": "Gold Plated",
         "occasion": "Bridal, Wedding",
         "description": "Complete bridal set — necklace, earrings, maang tikka, and bangles in ornate Kundan work. Your complete bridal look, curated.",
@@ -210,6 +235,7 @@ PRODUCTS = [
         "category": "Sets", "material": "Diamond · 18K White Gold",
         "price": 185000, "mrp": 220000, "rating": 4.9, "reviews": 34,
         "emoji": "💠", "new": False, "featured": True,
+        "image": _U + "1515562141207-7a88fb7ce338" + _OPT,
         "weight": "18g", "purity": "18K White Gold",
         "occasion": "Engagement, Anniversary",
         "description": "Matching solitaire ring, earrings, and pendant in 18K white gold with GIA certified diamonds. For love that deserves the finest.",
