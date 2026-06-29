@@ -1,11 +1,34 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import json
+import os
 from data import PRODUCTS, CATEGORIES, BANNERS
 from utils import (
     add_to_cart, remove_from_cart, update_quantity,
     get_cart_total, get_cart_count, toggle_wishlist,
     apply_coupon, filter_products
 )
+
+def product_image_html(url: str, alt: str = "", height: int = 220) -> str:
+    """Return an HTML snippet that renders a jewellery image in the user's browser.
+    Uses an iframe (via st.components.v1.html) so the browser fetches the image
+    directly — bypassing all server-side hotlink restrictions."""
+    if not url:
+        return ""
+    escaped_alt = alt.replace('"', "&quot;")
+    return f"""
+    <div style="width:100%;height:{height}px;overflow:hidden;background:#1a1020;display:flex;align-items:center;justify-content:center;">
+      <img src="{url}"
+           alt="{escaped_alt}"
+           style="width:100%;height:100%;object-fit:contain;background:#fff;padding:6px;"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+           loading="lazy"/>
+      <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;font-size:3.5rem;background:linear-gradient(135deg,#1a1020,#0d0d1a);">
+        💍
+      </div>
+    </div>
+    """
+
 
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -187,6 +210,16 @@ p, span, div, label, button { font-family: 'Inter', sans-serif !important; }
   width: 100%; aspect-ratio: 1;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+.gc-card-img-wrap {
+  width: 100%; aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+  background: linear-gradient(135deg, #1a1020, #0d0d1a);
+}
+.gc-card:hover .gc-card-img {
+  transform: scale(1.07);
 }
 .gc-card-img-placeholder {
   width: 100%; aspect-ratio: 1;
@@ -600,10 +633,21 @@ def render_product_card(p, prefix="default"):
     mrp_fmt = "{:,}".format(p["mrp"])
     price_fmt = "{:,}".format(p["price"])
 
-    # Assemble card HTML using string concatenation (avoids f-string rendering bugs)
-    card_html = (
-        '<div class="gc-card">'
-        '<div class="gc-card-img-placeholder">' + p["emoji"] + "</div>"
+    # ── Card shell open ──
+    st.markdown('<div class="gc-card">', unsafe_allow_html=True)
+
+    # ── Real jewellery image — rendered by the user's browser ──
+    img_url = p.get("image", "")
+    if img_url:
+        components.html(product_image_html(img_url, p["name"], height=220), height=222)
+    else:
+        st.markdown(
+            '<div class="gc-card-img-placeholder">' + p["emoji"] + "</div>",
+            unsafe_allow_html=True
+        )
+
+    # ── Card body (text info) ──
+    card_body = (
         '<div class="gc-card-body">'
         + badge_html
         + '<div class="gc-card-tag">' + p["material"] + " &middot; " + p["category"] + "</div>"
@@ -617,8 +661,7 @@ def render_product_card(p, prefix="default"):
         + "</div>"
         + "</div>"
     )
-
-    st.markdown(card_html, unsafe_allow_html=True)
+    st.markdown(card_body, unsafe_allow_html=True)
 
     c1, c2 = st.columns(2)
     with c1:
@@ -729,13 +772,17 @@ def render_product_detail():
     col1, col2 = st.columns([1, 1])
 
     with col1:
-        st.markdown(f"""
-        <div style="background:linear-gradient(135deg,#1a1020,#0d0d1a);
-                    aspect-ratio:1;display:flex;align-items:center;
-                    justify-content:center;font-size:10rem;border:1px solid #2a2a2a;">
-          {p['emoji']}
-        </div>
-        """, unsafe_allow_html=True)
+        detail_img_url = p.get("image", "")
+        if detail_img_url:
+            components.html(product_image_html(detail_img_url, p["name"], height=420), height=422)
+        else:
+            st.markdown(
+                '<div style="background:linear-gradient(135deg,#1a1020,#0d0d1a);'
+                'aspect-ratio:1;display:flex;align-items:center;'
+                'justify-content:center;font-size:10rem;border:1px solid #2a2a2a;">'
+                + p["emoji"] + "</div>",
+                unsafe_allow_html=True
+            )
 
     with col2:
         filled = int(p["rating"])
