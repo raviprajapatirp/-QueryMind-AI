@@ -60,11 +60,24 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
+/* ── Hide Streamlit chrome completely ── */
+#MainMenu { visibility: hidden; }
+header[data-testid="stHeader"] { display: none !important; height: 0 !important; }
+footer { visibility: hidden; }
+.stDeployButton { display: none !important; }
+[data-testid="stToolbar"] { display: none !important; }
+[data-testid="stDecoration"] { display: none !important; }
+[data-testid="stStatusWidget"] { display: none !important; }
+
 /* ── Reset & Base ── */
 * { box-sizing: border-box; }
-.stApp { background: #0a0a0a; }
-.block-container { padding: 0 !important; max-width: 100% !important; }
+html, body { margin: 0; padding: 0; }
+.stApp { background: #0a0a0a; margin-top: 0 !important; padding-top: 0 !important; }
+.stApp > div:first-child { padding-top: 0 !important; }
+.block-container { padding: 0 !important; max-width: 100% !important; margin-top: 0 !important; }
 section[data-testid="stSidebar"] { display: none; }
+[data-testid="stAppViewContainer"] { padding-top: 0 !important; margin-top: 0 !important; }
+[data-testid="stVerticalBlock"] { gap: 0 !important; }
 
 /* ── Typography ── */
 h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif !important; }
@@ -78,7 +91,8 @@ p, span, div, label, button { font-family: 'Inter', sans-serif !important; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky; top: 0; z-index: 999;
+  position: sticky; top: 0; z-index: 9999;
+  margin-top: 0 !important;
 }
 .gc-logo {
   font-family: 'Cormorant Garamond', serif;
