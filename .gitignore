@@ -1,8 +1,0 @@
-venv/
-__pycache__/
-*.pyc
-.env
-.streamlit/secrets.toml
-users.db
-app_state.db
-.DS_Store
